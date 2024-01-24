@@ -3,6 +3,6 @@ const uploadController = require("../controller/upload.controller");
 
 const router = express.Router(); // call router method on express
 
-router.get("/", uploadController.index);
+router.post("/", uploadController.save);
 
 module.exports = router;
