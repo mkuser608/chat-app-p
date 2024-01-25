@@ -24,8 +24,19 @@ function save(req, res){
 
 }
 
+function show(req, res) {
+    const id = req.params.id;
 
+    models.Post.findByPk(id).then(result => {
+        res.status(201).json(result)
+    }).catch(error => {
+        res.status(500).json({
+            message: "Something went wrong!"
+        })
+    });
+}
 
 module.exports = {
     save: save,
+    show: show
 }
