@@ -6,10 +6,14 @@ const bodyParser = require('body-parser'); // we need to use it as a middleWare
 
 const uploadRout = require("./routs/upload");
 
+const userRout = require("./routs/user");
+
 app.use(bodyParser.json());
 
 // we use use() as a middleware for incoming request
 app.use("/upload", uploadRout);
+
+app.use("/user", userRout);
 
 //inside the get method we have to pass the 2 parameter that is rout(/) & call back function and 
 //call back function has two parameter (request and response). 

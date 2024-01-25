@@ -28,6 +28,13 @@ function show(req, res) {
     const id = req.params.id;
 
     models.Post.findByPk(id).then(result => {
+        if(result){
+            res.status(200).json(result) 
+        }else{
+            res.status(404).json({
+                message: "Post not found!"
+            })
+        }
         res.status(200).json(result)
     }).catch(error => {
         res.status(500).json({
