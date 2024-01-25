@@ -70,9 +70,27 @@ function update(req, res){
     });
 }
 
+function Delete(req, res){
+    const id = req.params.id;
+    const userId = 1;
+
+    models.Post.destroy({where: {id: id, userId: 1}}).then(result => {
+        res.status(200).json({
+            message: "Post Deleted Successfully!",
+            post: result
+        })
+    }).catch(error => {
+        res.status(500).json({
+            message: "Something went wrong!",
+            error: error
+        })
+    });
+}
+
 module.exports = {
     save: save,
     show: show,
     getAll: getAll,
-    update: update
+    update: update,
+    Delete: Delete
 }

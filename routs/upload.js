@@ -11,4 +11,6 @@ router.get("/all", uploadController.getAll);
 
 router.get("/:id", uploadController.show);
 
+router.delete("/:id", uploadController.Delete);
+
 module.exports = router;
